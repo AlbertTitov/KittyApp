@@ -29,15 +29,13 @@ abstract class BaseCatsFeedFragment :
 
     private var errorDialog: Dialog? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        (parentFragment as CatsFeedComponentHolder).getComponent().inject(this)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (parentFragment as CatsFeedComponentHolder).getComponent().inject(this)
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getCatsList()
-        viewModel.observeUpdatedCatsList()
+        if (savedInstanceState == null) {
+            viewModel.getCatsList()
+            viewModel.observeUpdatedCatsList()
+        }
     }
 
     override fun initView() {
