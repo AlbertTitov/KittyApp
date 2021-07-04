@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cat_photo_size">220dp</dimen>
+    <dimen name="margin_grid_1">8dp</dimen>
+    <dimen name="margin_grid_2">16dp</dimen>
+    <dimen name="common_icon_size">24dp</dimen>
+    <dimen name="large_icon_size">32dp</dimen>
+    <dimen name="icon_size_64">64dp</dimen>
+    <dimen name="common_corner_radius">12dp</dimen>
+</resources>

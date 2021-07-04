@@ -1,2 +1,6 @@
 rootProject.name = "KittyApp"
 include ':app'
+include ':data'
+include ':module_base_sdk'
+include ':di_proxy'
+include ':feature_cats_feed'

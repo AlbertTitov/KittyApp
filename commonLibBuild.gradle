@@ -1,0 +1,42 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion builds.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion builds.minSdkVersion
+        targetSdkVersion builds.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    def googleDependencies = rootProject.ext.googleDependencies
+    def thirdPartyDependencies = rootProject.ext.thirdPartyDependencies
+
+    implementation googleDependencies.kotlin
+
+    // dagger2
+    implementation thirdPartyDependencies.dagger
+    kapt thirdPartyDependencies.daggerCompiler
+}

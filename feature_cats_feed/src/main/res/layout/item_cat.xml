@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/cat_photo_size"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingStart="@dimen/margin_grid_2"
+    android:paddingTop="@dimen/margin_grid_1"
+    android:paddingEnd="@dimen/margin_grid_2">
+
+    <ProgressBar
+        android:id="@+id/imageSpinner"
+        android:layout_width="@dimen/large_icon_size"
+        android:layout_height="@dimen/large_icon_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/imageStub"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_image_stub"
+        android:backgroundTint="@color/ui_always_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageError"
+        android:layout_width="@dimen/large_icon_size"
+        android:layout_height="@dimen/large_icon_size"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/imageStub"
+        app:layout_constraintEnd_toEndOf="@id/imageStub"
+        app:layout_constraintStart_toStartOf="@id/imageStub"
+        app:layout_constraintTop_toTopOf="@id/imageStub"
+        app:srcCompat="@drawable/baseline_error_24"
+        tools:visibility="visible"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/catImage"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/isFavourite"
+        android:layout_width="@dimen/common_icon_size"
+        android:layout_height="@dimen/common_icon_size"
+        android:layout_marginEnd="@dimen/margin_grid_1"
+        android:layout_marginBottom="@dimen/margin_grid_1"
+        android:background="@drawable/bg_favourite"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/catImage"
+        app:layout_constraintEnd_toEndOf="@+id/favouriteIconEndConstraint"
+        tools:visibility="visible"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/favouriteIconEndConstraint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierAllowsGoneWidgets="false"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="catImage, imageStub" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

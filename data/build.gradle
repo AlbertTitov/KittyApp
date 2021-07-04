@@ -1,0 +1,33 @@
+plugins {
+    id 'com.android.library'
+}
+
+apply from: '../commonLibBuild.gradle'
+
+dependencies {
+
+    def googleDependencies = rootProject.ext.googleDependencies
+    def thirdPartyDependencies = rootProject.ext.thirdPartyDependencies
+
+    // rxJava2
+    implementation thirdPartyDependencies.rxandroid
+    implementation thirdPartyDependencies.rxjava
+    implementation thirdPartyDependencies.rxKotlin
+
+    // room
+    implementation googleDependencies.room
+    implementation googleDependencies.room_rx
+    implementation googleDependencies.room_compiler
+
+    // okhttp
+    implementation thirdPartyDependencies.okhttp
+    implementation thirdPartyDependencies.okhttp_log_interc
+
+    // retrofit
+    implementation thirdPartyDependencies.retrofit
+    implementation thirdPartyDependencies.retrofit_rx
+    implementation thirdPartyDependencies.retrofit_gson
+
+    // gson
+    implementation thirdPartyDependencies.gson
+}

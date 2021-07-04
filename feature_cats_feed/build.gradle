@@ -1,0 +1,34 @@
+plugins {
+    id 'com.android.library'
+}
+
+apply from: '../commonLibBuild.gradle'
+
+android {
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    implementation project(':data')
+    implementation project(':di_proxy')
+    implementation project(':module_base_sdk')
+
+    implementation googleDependencies.android_ktx_core
+    implementation googleDependencies.appcompat
+    implementation googleDependencies.constraint_layout
+    implementation googleDependencies.design
+    implementation googleDependencies.fragment_ktx
+
+    // rxJava2
+    implementation thirdPartyDependencies.rxandroid
+    implementation thirdPartyDependencies.rxjava
+    implementation thirdPartyDependencies.rxKotlin
+
+    // glide
+    implementation thirdPartyDependencies.glide
+    kapt thirdPartyDependencies.glide_compiler
+}

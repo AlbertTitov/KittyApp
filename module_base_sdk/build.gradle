@@ -1,0 +1,31 @@
+plugins {
+    id 'com.android.library'
+}
+
+apply from: '../commonLibBuild.gradle'
+
+android {
+
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+
+    def googleDependencies = rootProject.ext.googleDependencies
+    def thirdPartyDependencies = rootProject.ext.thirdPartyDependencies
+
+    implementation googleDependencies.android_ktx_core
+    implementation googleDependencies.fragment_ktx
+    implementation googleDependencies.recyclerview
+
+    // rxJava2
+    implementation thirdPartyDependencies.rxandroid
+    implementation thirdPartyDependencies.rxjava
+    implementation thirdPartyDependencies.rxKotlin
+
+    // glide
+    implementation thirdPartyDependencies.glide
+    kapt thirdPartyDependencies.glide_compiler
+}

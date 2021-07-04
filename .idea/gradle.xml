@@ -11,6 +11,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/di_proxy" />
+            <option value="$PROJECT_DIR$/feature_cats_feed" />
+            <option value="$PROJECT_DIR$/module_base_sdk" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

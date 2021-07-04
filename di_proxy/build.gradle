@@ -1,0 +1,10 @@
+plugins {
+    id 'com.android.library'
+}
+
+apply from: '../commonLibBuild.gradle'
+
+dependencies {
+
+    implementation project(':data')
+}
