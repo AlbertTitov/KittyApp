@@ -20,16 +20,14 @@ class CatsFeedViewModel @Inject constructor(
     override fun requestCatsList(page: Int, requestLimit: Int) =
         repository.getCats(page, requestLimit)
 
-    override fun handleUpdatedCat(newCat: CatEntity) = catsState.value?.let { stateList ->
-
-        getCatsUpdatedList(stateList, newCat)?.let { newList ->
+    override fun handleUpdatedCat(newCat: CatEntity) =
+        getCatsUpdatedList(catsList, newCat)?.let { newList ->
             catsList.run {
                 clear()
                 addAll(newList)
             }
             catsState.postValue(catsList)
         }
-    }
 
     fun toggleCatIsFavourite(cat: CatEntity) {
         repository.getFavouriteCats()
